@@ -26,11 +26,12 @@ if (isset($parameters)) {
 	$hora = $jsonRecibido["hora"];
 	$plazasTotales = $jsonRecibido["plazas_totales"];
 	$plazasDisponibles = $jsonRecibido["plazas_disponibles"];
+  $precio = $jsonRecibido["precio"];
 
 
   $buscarVuelo = $colección->insertOne(['codigo' => $codigo, 'origen' => $origen,
 	'destino' => $destino, 'fecha' => $fecha, 'hora' => $hora,
-	'plazas_totales' => $plazasTotales, 'plazas_disponibles' => $plazasDisponibles]);
+	'plazas_totales' => $plazasTotales, 'plazas_disponibles' => $plazasDisponibles, 'precio' => $precio]);
 
 $arrayInfo["estado"] = true;
 $arrayInfo["mensaje"] = "Insertado correctamente";

@@ -14,6 +14,10 @@ $contador = 0;
 $arrayVuelos = array();
 $arrayInfo = array();
 $filtrado = false;
+if (isset($_GET["codigo"])) {
+  $codigo = $_GET["codigo"];
+  $resultado = $colección->find(["codigo" => $codigo]);
+}
 
 if(isset($_GET["fecha"]) && isset($_GET["origen"]) && isset($_GET["destino"])){
   $fechaS = $_GET["fecha"];
@@ -41,7 +45,6 @@ if (isset($resultado) && $resultado) {
     foreach ($resultado as $entry) {
       $contador++;
       $vuelo = array();
-      $vuelo["id"] =$entry["id"];
       $vuelo["codigo"] =$entry["codigo"];
       $vuelo["origen"] =$entry["origen"];
       $vuelo["destino"] =$entry["destino"];
@@ -49,6 +52,7 @@ if (isset($resultado) && $resultado) {
       $vuelo["hora"] =$entry["hora"];
       $vuelo["plazas_totales"] =$entry["plazas_totales"];
       $vuelo["plazas_disponibles"] =$entry["plazas_disponibles"];
+      $vuelo["precio"] = $entry["precio"];
       $arrayVuelos[] = $vuelo;
 
     }
