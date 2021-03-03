@@ -98,6 +98,7 @@ function getCodigoVenta($n) {
     $pasajero["dniPagador"] = $dniPagador;
     $pasajero["tarjeta"] = $tarjeta;
     $pasajero["codigoVenta"] = $arrayInfo["codigoVenta"];
+    $pasajero["user"] = $viajero["user"];
     $datosBillete[] = $pasajero;
     $resultados = $colección->updateOne(
        array("codigo" => $codigoVuelo),
